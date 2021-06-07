@@ -39,3 +39,11 @@ resource "aws_s3_bucket" "static" {
     enabled = true
   }
 }
+
+resource "aws_s3_bucket_object" "index" {
+  bucket       = "bucket-by-terraform-static"
+  key          = "index.html"
+  source       = "./index.html"
+  content_type = "text/html"
+  acl          = "public-read"
+}
